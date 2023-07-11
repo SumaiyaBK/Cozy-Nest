@@ -21,9 +21,9 @@ model User {
   updateAt       DateTime  @updatedAt
   favoriteIds    String[]  @db.ObjectId
 
-  accounts Account[]
-  ///istings      Listing[]
-  ///reservations Reservation[]
+  accounts     Account[]
+  istings      Listing[]
+  reservations Reservation[]
 }
 
 model Account {
@@ -32,7 +32,7 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String  @db.String
+  refresh_token     String? @db.String
   access_token      String? @db.String
   expires_at        Int?
   token_type        String?
@@ -41,4 +41,18 @@ model Account {
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Listing {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  description   String
+  imageSrc      String
+  createdAt     DateTime @default(now())
+  category      String
+  roomCount     Int
+  bathroomCount Int
+  guestCount    Int
 }
