@@ -1,7 +1,7 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import axios from "axios";
+//import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcAddressBook, FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
@@ -85,13 +85,13 @@ const LoginModal = () => {
         outline
         label="Continue with google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
 
       <div
