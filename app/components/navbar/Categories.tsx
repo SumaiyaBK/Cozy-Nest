@@ -8,8 +8,13 @@ import {
   GiForestCamp,
   GiIsland,
   GiWindmill,
+  GiCaveEntrance,
+  GiCactus,
+  GiBarn,
 } from "react-icons/gi";
 import { MdOutlineVilla } from "react-icons/md";
+import { IoDiamond } from "react-icons/io5";
+import { BsSnow } from "react-icons/bs";
 import { FaSkiing } from "react-icons/fa";
 import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -59,6 +64,36 @@ export const categories = [
     label: "Camping",
     icon: GiForestCamp,
     description: "This property has a camping activities.",
+  },
+  {
+    label: "Caves",
+    icon: GiCaveEntrance,
+    description: "This property is in a spooky cave!",
+  },
+  {
+    label: "Camping",
+    icon: GiForestCamp,
+    description: "This property offers camping activities!",
+  },
+  {
+    label: "Arctic",
+    icon: BsSnow,
+    description: "This property is in arctic environment!",
+  },
+  {
+    label: "Desert",
+    icon: GiCactus,
+    description: "This property is in the desert!",
+  },
+  {
+    label: "Barns",
+    icon: GiBarn,
+    description: "This property is in a barn!",
+  },
+  {
+    label: "Lux",
+    icon: IoDiamond,
+    description: "This property is brand new and luxurious!",
   },
 ];
 
