@@ -63,8 +63,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
       items-center
       justify-between
       font-semibold
-      text-lg
-      "
+      text-lg"
       >
         <div>Total</div>
         <div>${totalPrice}</div>
