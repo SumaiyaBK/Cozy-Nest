@@ -66,7 +66,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
       text-lg
       "
       >
-        <div>Total</div>
+        <div>Total:</div>
         <div>${totalPrice}</div>
       </div>
     </div>
