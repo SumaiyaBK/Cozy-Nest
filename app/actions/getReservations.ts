@@ -28,7 +28,7 @@ export default async function getReservations(
     const reservations = await prisma.reservation.findMany({
         where: query,
         include:{
-            listing: true,                
+            Listing: true,                
             },
             orderBy:{
                 createdAt:'desc'
@@ -42,8 +42,8 @@ export default async function getReservations(
                 startDate: reservation.startDate.toISOString(),
                 endDate: reservation.endDate.toISOString(),
                 listing:{
-                    ...reservation.listing,
-                    createdAt: reservation.listing.createdAt.toISOString()
+                    ...reservation.Listing,
+                    createdAt: reservation.Listing.createdAt.toISOString()
                 }
             })
         );

@@ -28,7 +28,7 @@ const Search = () => {
           font-semibold
           px-6"
         >
-          anywhere
+          Anywhere
         </div>
         <div
           className="
