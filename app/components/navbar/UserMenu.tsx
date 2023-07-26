@@ -12,6 +12,7 @@ import useRentModal from "@/app/hooks/useRentModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
+import { hr } from "date-fns/locale";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -28,6 +29,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const isAdmin = currentUser?.isAdmin;
 
   const onRent = useCallback(() => {
     if (!currentUser) {
@@ -128,9 +131,25 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   label="My properties"
                 />
                 <MenuItem onClick={rentModal.onOpen} label="My Cozy Nest" />
-                <hr />
-                <MenuItem onClick={() => {}} label="Dashboard" />
-                <hr />
+                {isAdmin ? (
+                  <>
+                    <hr />
+                    <MenuItem
+                      onClick={() => {
+                        router.push("/admin");
+                      }}
+                      label="Users Panel"
+                    />
+                    <MenuItem
+                      onClick={() => {
+                        router.push("/adminReservationPanel");
+                      }}
+                      label="All reservations Panel"
+                    />
+                    <hr />
+                  </>
+                ) : null}
+
                 <MenuItem onClick={signOut} label="Logout" />
               </>
             ) : (
