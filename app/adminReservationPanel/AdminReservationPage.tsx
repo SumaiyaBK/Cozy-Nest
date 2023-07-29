@@ -1,52 +1,50 @@
-import { SafeReservation } from "@/app/types";
+import { SafeReservation, SafeUser } from "@/app/types";
 import Heading from "@/app/components/Heading";
 import Container from "@/app/components/Container";
+import React from "react";
+import getListingById from "../actions/getListingById";
 
 interface AdminReservationPageProps {
-  reservationsList: SafeReservation[];
+  currentUser?: SafeUser | null;
+  usersList: SafeUser[];
+  reservationsList: SafeReservation[] | null;
 }
 
 const AdminReservationPage: React.FC<AdminReservationPageProps> = ({
   reservationsList,
 }) => {
-  const allReservations: JSX.Element[] = reservationsList.map((reservation) => (
-    <tr key={reservation.id}>
-      <td className="border p-2">{reservation.userId}</td>
-      <td className="border p-2">
-        {new Date(reservation.startDate).toLocaleDateString()}
-      </td>
-      <td className="border p-2">
-        {new Date(reservation.endDate).toLocaleDateString()}
-      </td>
-      <td className="border p-2">
-        {reservation.totalPrice.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}
-      </td>
-    </tr>
-  ));
+  const allReservations = reservationsList?.map((element) => {
+    return (
+      <tr key={element.id}>
+        <td>{element.userId.indexOf("1")}</td>
+        <td>{element.listingId.valueOf()}</td>
+        <td>{new Date(element.startDate).toDateString()}</td>
+        <td>{new Date(element.endDate).toDateString()}</td>
+        <td>
+          {element.totalPrice.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })}
+        </td>
+      </tr>
+    );
+  });
 
   return (
     <Container>
       <Heading
-        title="Reservation Panel"
-        subtitle="All users reservation list!"
-      />
-
+        title="All reservations"
+        subtitle="All users reservations"
+      ></Heading>
       <table className="w-full text-left">
-        <thead
-          className="  
-          bg-[#f2f2f2]
-          border-solid
-          border-[#000]
-          p-10px"
-        >
+        <caption className="sr-only"> All users lists</caption>
+        <thead className="bg-gray-200 bordr border-black p-2">
           <tr>
-            <th className="border p-2">User Id</th>
-            <th className="border p-2">Starting Date</th>
-            <th className="border p-2">Ending Date</th>
-            <th className="border p-2">Total Price</th>
+            <td className="border p-2">Users Id</td>
+            <td className="border p-2">Listing Id</td>
+            <td className="border p-2">Start Date</td>
+            <td className="border p-2">End Date</td>
+            <td className="border p-2">Total Price</td>
           </tr>
         </thead>
         <tbody>{allReservations}</tbody>
@@ -54,5 +52,4 @@ const AdminReservationPage: React.FC<AdminReservationPageProps> = ({
     </Container>
   );
 };
-
 export default AdminReservationPage;

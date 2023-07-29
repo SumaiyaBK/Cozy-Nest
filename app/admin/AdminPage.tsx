@@ -1,9 +1,7 @@
 import React from "react";
 import Heading from "@/app/components/Heading"; // Assuming correct path for Heading component
 import Container from "@/app/components/Container"; // Assuming correct path for Container component
-import Button from "../components/Button"; // Assuming correct path for Button component
 import { SafeUser } from "@/app/types"; // Assuming correct path for SafeUser type
-
 interface AdminProps {
   usersList: SafeUser[];
   currentUser?: SafeUser | null;
@@ -14,7 +12,7 @@ const AdminPage: React.FC<AdminProps> = ({ usersList, currentUser }) => {
     <tr key={element.id}>
       <td className="border p-2">{element.name}</td>
       <td className="border p-2">{element.email}</td>
-      <td className="border p-2">{element.role}</td>
+      <td className="border p-2">{element.isAdmin ? "Admin" : "User"}</td>
     </tr>
   ));
 

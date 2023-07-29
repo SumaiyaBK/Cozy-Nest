@@ -1,10 +1,8 @@
 import getUsersList from "../actions/getUsers";
 import EmptyState from "../components/EmptyState";
-import { SafeUser } from "../types";
 import AdminPage from "./AdminPage";
 import ClientOnly from "@/app/components/ClientOnly";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import { userInfo } from "os";
 
 const Admin = async () => {
   const currentUser = await getCurrentUser();

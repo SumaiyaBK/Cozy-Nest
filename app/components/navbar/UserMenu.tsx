@@ -134,17 +134,18 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 {isAdmin ? (
                   <>
                     <hr />
+                    <label className="item-center flex flex-auto">Admin</label>
                     <MenuItem
                       onClick={() => {
                         router.push("/admin");
                       }}
-                      label="Users Panel"
+                      label="Users"
                     />
                     <MenuItem
                       onClick={() => {
                         router.push("/adminReservationPanel");
                       }}
-                      label="All reservations Panel"
+                      label="All reservations"
                     />
                     <hr />
                   </>

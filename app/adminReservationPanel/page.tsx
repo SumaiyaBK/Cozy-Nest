@@ -1,15 +1,17 @@
-import getUsersList from "../actions/getUsers";
 import EmptyState from "../components/EmptyState";
-import { SafeUser } from "../types";
 import ClientOnly from "@/app/components/ClientOnly";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import { userInfo } from "os";
+import AdminReservationPage from "./AdminReservationPage";
+import getUserReservationList from "../actions/getUserReservation";
+import Admin from "../admin/page";
+import getUsersList from "../actions/getUsers";
 
-const AdminReservationPage = async () => {
+const Page = async () => {
+  const reservationsList = await getUserReservationList();
   const currentUser = await getCurrentUser();
-  const userList = await getUsersList();
+  const usersList = await getUsersList();
 
-  if (!AdminReservationPage) {
+  if (!Admin) {
     return (
       <ClientOnly>
         <EmptyState
@@ -21,12 +23,16 @@ const AdminReservationPage = async () => {
   }
   //  const users = await getUsersList({'userId'});
   // return <AdminPage currentUser={currentUser} usersList={userList} />;
-
   return (
     <ClientOnly>
-      {/* <AdminReservationPage currentUser={currentUser} usersList={userList} /> */}
+      <AdminReservationPage
+        //@ts-ignore
+        reservationsList={reservationsList}
+        currentUser={currentUser}
+        usersList={usersList}
+      />
     </ClientOnly>
   );
 };
 
-export default AdminReservationPage;
+export default Page;
