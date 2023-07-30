@@ -2,7 +2,6 @@ import { SafeReservation, SafeUser } from "@/app/types";
 import Heading from "@/app/components/Heading";
 import Container from "@/app/components/Container";
 import React from "react";
-import getListingById from "../actions/getListingById";
 
 interface AdminReservationPageProps {
   currentUser?: SafeUser | null;
@@ -16,7 +15,7 @@ const AdminReservationPage: React.FC<AdminReservationPageProps> = ({
   const allReservations = reservationsList?.map((element) => {
     return (
       <tr key={element.id}>
-        <td>{element.userId.indexOf("1")}</td>
+        <td>{element.userId.indexOf("0")}</td>
         <td>{element.listingId.valueOf()}</td>
         <td>{new Date(element.startDate).toDateString()}</td>
         <td>{new Date(element.endDate).toDateString()}</td>
