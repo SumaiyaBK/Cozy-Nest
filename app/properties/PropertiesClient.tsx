@@ -5,7 +5,7 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
+import { SafeListing, SafeUser } from "@/app/types";
 
 import Heading from "@/app/components/Heading";
 import Container from "@/app/components/Container";
@@ -23,14 +23,14 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
   const router = useRouter();
   const [deletingId, setDeletingId] = useState("");
 
-  const onCancel = useCallback(
+  const onDelete = useCallback(
     (id: string) => {
       setDeletingId(id);
 
       axios
         .delete(`/api/listings/${id}`)
         .then(() => {
-          toast.success("Listings deleted");
+          toast.success("Listing deleted");
           router.refresh();
         })
         .catch((error) => {
@@ -64,8 +64,8 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
             key={listing.id}
             data={listing}
             actionId={listing.id}
-            onAction={onCancel}
-            disabled={deletingId == listing.id}
+            onAction={onDelete}
+            disabled={deletingId === listing.id}
             actionLabel="Delete property"
             currentUser={currentUser}
           />
