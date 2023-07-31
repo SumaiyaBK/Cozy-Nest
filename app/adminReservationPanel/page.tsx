@@ -21,8 +21,6 @@ const Page = async () => {
       </ClientOnly>
     );
   }
-  //  const users = await getUsersList({'userId'});
-  // return <AdminPage currentUser={currentUser} usersList={userList} />;
   return (
     <ClientOnly>
       <AdminReservationPage

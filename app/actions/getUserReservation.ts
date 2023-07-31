@@ -14,7 +14,6 @@ export default async function getUserReservationList() {
     // Remove the unnecessary toISOString() call for createdAt
     const reservationsList = dbReservationList.map((reservation) => ({
       ...reservation,
-      // Remove the toISOString() call for createdAt
     }));
 
     return reservationsList;

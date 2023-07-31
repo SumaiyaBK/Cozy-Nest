@@ -15,8 +15,8 @@ const AdminReservationPage: React.FC<AdminReservationPageProps> = ({
   const allReservations = reservationsList?.map((element) => {
     return (
       <tr key={element.id}>
-        <td>{element.userId.indexOf("0")}</td>
-        <td>{element.listingId.valueOf()}</td>
+        <td>{element.userId.indexOf("1")}</td>
+        <td>{element.listingId}</td>
         <td>{new Date(element.startDate).toDateString()}</td>
         <td>{new Date(element.endDate).toDateString()}</td>
         <td>
