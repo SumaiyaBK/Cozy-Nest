@@ -42,7 +42,6 @@ const TripsClient: React.FC<TripsClientProps> = ({
     },
     [router]
   );
-
   return (
     <Container>
       <Heading
@@ -78,5 +77,4 @@ const TripsClient: React.FC<TripsClientProps> = ({
     </Container>
   );
 };
-
 export default TripsClient;

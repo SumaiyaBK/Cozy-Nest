@@ -1,7 +1,7 @@
 import React from "react";
-import Heading from "@/app/components/Heading"; // Assuming correct path for Heading component
-import Container from "@/app/components/Container"; // Assuming correct path for Container component
-import { SafeUser } from "@/app/types"; // Assuming correct path for SafeUser type
+import Heading from "@/app/components/Heading";
+import Container from "@/app/components/Container";
+import { SafeUser } from "@/app/types";
 interface AdminProps {
   usersList: SafeUser[];
   currentUser?: SafeUser | null;

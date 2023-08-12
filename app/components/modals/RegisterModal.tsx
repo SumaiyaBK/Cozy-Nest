@@ -3,13 +3,8 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 
 import axios from "axios";
-import {
-  AiFillFacebook,
-  AiFillGithub,
-  AiFillTwitterCircle,
-  AiOutlineExclamationCircle,
-} from "react-icons/ai";
-import { FcAddressBook, FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Modal from "./Modal";
@@ -91,7 +86,6 @@ const RegisterModal = () => {
       />
     </div>
   );
-
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
       <hr />
@@ -108,30 +102,13 @@ const RegisterModal = () => {
         onClick={() => signIn("github")}
       />
 
-      <div
-        className="
-      text-neutral-500
-      text-center
-      mt-4
-      font-light
-      "
-      >
-        <div
-          className="
-        justify-center 
-        flex 
-        flex-row 
-        items-center
-        gap-2"
-        >
+      <div className="text-neutral-500 text-center mt-4 font-light">
+        <div className="justify-center flex flex-row items-center gap-2">
           <div>Already have an account?</div>
         </div>
         <div
           onClick={toggle}
-          className="
-        text-neutral-800
-        cursor-pointer
-        hover:underline
+          className=" text-neutral-800 cursor-pointer hover:underline
         "
         >
           Log in
@@ -139,7 +116,6 @@ const RegisterModal = () => {
       </div>
     </div>
   );
-
   return (
     <Modal
       disabled={isLodaing}
@@ -153,5 +129,4 @@ const RegisterModal = () => {
     />
   );
 };
-
 export default RegisterModal;

@@ -12,7 +12,6 @@ import useRentModal from "@/app/hooks/useRentModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
-import { hr } from "date-fns/locale";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
