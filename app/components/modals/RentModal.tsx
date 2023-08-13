@@ -90,6 +90,10 @@ const RentModal = () => {
     if (step !== STEPS.PRICE) {
       return onNext();
     }
+    if (data.price <= 0) {
+      toast.error("You can not add negative value");
+      return onNext();
+    }
 
     setIsLoading(true);
 
@@ -255,6 +259,7 @@ const RentModal = () => {
           title="Now, set your price"
           subtitle="How much do you charge per night?"
         />
+
         <Input
           id="price"
           label="Price"

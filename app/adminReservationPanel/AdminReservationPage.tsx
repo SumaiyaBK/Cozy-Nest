@@ -12,14 +12,19 @@ interface AdminReservationPageProps {
 const AdminReservationPage: React.FC<AdminReservationPageProps> = ({
   reservationsList,
 }) => {
-  const allReservations = reservationsList?.map((element) => {
+  const allReservations = reservationsList?.map((element, index) => {
     return (
       <tr key={element.id}>
-        <td>{element.userId.indexOf("1")}</td>
-        <td>{element.listingId}</td>
-        <td>{new Date(element.startDate).toDateString()}</td>
-        <td>{new Date(element.endDate).toDateString()}</td>
-        <td>
+        <td className="border p-2">{index + 1}</td>{" "}
+        <td className="border p-2">{element.User?.name}</td>
+        <td className="border p-2">{element.listing.title}</td>
+        <td className="border p-2">
+          {new Date(element.startDate).toDateString()}
+        </td>
+        <td className="border p-2">
+          {new Date(element.endDate).toDateString()}
+        </td>
+        <td className="border p-2">
           {element.totalPrice.toLocaleString("en-US", {
             style: "currency",
             currency: "USD",
@@ -39,8 +44,9 @@ const AdminReservationPage: React.FC<AdminReservationPageProps> = ({
         <caption className="sr-only"> All users lists</caption>
         <thead className="bg-gray-200 bordr border-black p-2">
           <tr>
-            <td className="border p-2">Users Id</td>
-            <td className="border p-2">Listing Id</td>
+            <td className="border p-2 ">Serial No</td>
+            <td className="border p-2">Users Name</td>
+            <td className="border p-2">Property Name</td>
             <td className="border p-2">Start Date</td>
             <td className="border p-2">End Date</td>
             <td className="border p-2">Total Price</td>
